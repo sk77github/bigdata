@@ -14,3 +14,10 @@ Hadoop并不是什么数据库，也不是程序库，甚至不是一个独立�
   Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询
   和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，
   除了不支持更新、索引和事务，sql其它功能都支持。
+  
+ 补充MapReduce的不足：
+Apache Pig也是Hadoop框架中的一部分，Pig提供类SQL语言（Pig Latin）通过MapReduce来处理大规模半结构化数据。
+而Pig Latin是更高级的过程语言，通过将MapReduce中的设计模式抽象为操作，如Filter，GroupBy，Join，OrderBy，
+由这些操作组成有向无环图（DAG）.而Pig Latin又是通过编译为MapReduce，在Hadoop集群上执行的
+  
+ 
