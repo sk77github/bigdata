@@ -9,7 +9,9 @@ Hadoop并不是什么数据库，也不是程序库，甚至不是一个独立�
  HDFS在MR任务处理过程中提供了文件操作和存储等支持，MR在HDFS的基础上实现了任务的分发、跟踪、执行等工作，并收集结果，
  二者相互作用，完成分布式集群的主要任务。
  
+ 
  Hbase就是Hadoop database。
+ 
  
   Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询
   和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，
@@ -19,5 +21,13 @@ Hadoop并不是什么数据库，也不是程序库，甚至不是一个独立�
 Apache Pig也是Hadoop框架中的一部分，Pig提供类SQL语言（Pig Latin）通过MapReduce来处理大规模半结构化数据。
 而Pig Latin是更高级的过程语言，通过将MapReduce中的设计模式抽象为操作，如Filter，GroupBy，Join，OrderBy，
 由这些操作组成有向无环图（DAG）.而Pig Latin又是通过编译为MapReduce，在Hadoop集群上执行的
+
+有了MapReduce，Tez和Spark之后，程序员发现，MapReduce的程序写起来真麻烦。
+他们希望简化这个过程。这就好比你有了汇编语言，虽然你几乎什么都能干了，但是你还是觉得繁琐。
+你希望有个更高层更抽象的语言层来描述算法和数据处理流程。于是就有了Pig和Hive。Pig是接近脚本方式去描述MapReduce，
+Hive则用的是SQL。它们把脚本和SQL语言翻译成MapReduce程序，丢给计算引擎去计算，而你就从繁琐的MapReduce程序中解脱出来，
+用更简单更直观的语言去写程序了。
+
+底层HDFS，上面跑MapReduce／Tez／Spark，在上面跑Hive，Pig。这解决了中低速数据处理的要求。
   
  
