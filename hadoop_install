@@ -1,0 +1,5 @@
+wget http://mirror.bit.edu.cn/apache/hadoop/common/current/hadoop-2.7.2.tar.gz
+tar -zxvf hadoop-2.7.2.tar.gz 
+cd hadoop-2.7.2
+echo $JAVA_HOME   查看JAVA_HOME,如果没有JAVA_HOME 配置JAVA_HOME
+bin/hadoop version 验证是否安装成功
