@@ -19,6 +19,13 @@ Tez™: A generalized data-flow programming framework, built on Hadoop YARN, whi
 ZooKeeper™: A high-performance coordination service for distributed applications.
 
 
+主要角色：
+ masters:NameNode, ResourceManager
+ slaves:DataNode ,NodeManager
+ Web App Proxy Server
+ MapReduce Job History server
+
+
 
 
 Hadoop并不是什么数据库，也不是程序库，甚至不是一个独立产品。实际上，Hadoop是一些独立模块的组合，
