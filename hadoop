@@ -24,6 +24,10 @@ ZooKeeper™: A high-performance coordination service for distributed applicatio
  slaves:DataNode ,NodeManager
  Web App Proxy Server
  MapReduce Job History server
+ 
+ HDFS daemons are NameNode, SecondaryNameNode, and DataNode
+ YARN damones are ResourceManager, NodeManager, and WebAppProxy
+ If MapReduce is to be used, then the MapReduce Job History Server will also be running. 
 
 
 
