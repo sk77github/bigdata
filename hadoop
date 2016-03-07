@@ -28,6 +28,15 @@ ZooKeeper™: A high-performance coordination service for distributed applicatio
  HDFS daemons are NameNode, SecondaryNameNode, and DataNode
  YARN damones are ResourceManager, NodeManager, and WebAppProxy
  If MapReduce is to be used, then the MapReduce Job History Server will also be running. 
+ 
+ 
+ 
+ hadoop安装：
+ Once all the necessary configuration is complete, distribute the files to the HADOOP_CONF_DIR directory on all the machines.
+ This should be the same directory on all machines.
+ In general, it is recommended that HDFS and YARN run as separate users. In the majority of installations,
+ HDFS processes execute as ‘hdfs’. 
+ YARN is typically using the ‘yarn’ account.
 
 
 
