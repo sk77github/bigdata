@@ -3,3 +3,44 @@ tar -zxvf hadoop-2.7.2.tar.gz
 cd hadoop-2.7.2
 echo $JAVA_HOME   查看JAVA_HOME,如果没有JAVA_HOME 配置JAVA_HOME
 bin/hadoop version 验证是否安装成功
+
+_______________________________________________________________________________
+分布式集群安装：
+http://jingyan.baidu.com/article/27fa73269c02fe46f9271f45.html
+java官方的jdk  版本  1.7  设置好java环境变量
+Linux  date 要统一  在分布式系统里
+
+设置集群机器的/etc/hosts   划分好namenode所在机器 ，和datanode所在机器，也就是slaves的概念
+设置ssh登录环境（ansible也需要设置ssh，正好都需要） hadoop启动命令所在机器 要能ssh通所有机器，包括自己
+
+添加hadoop用户和hadoop组  以hadoop用户来解压安装（Hadoop程序启动时，要使用Hadoop用户，这里要注意）
+
+修改配置文件
+1：hadoop-env.sh
+该文件是hadoop运行基本环境的配置，需要修改的为java虚拟机的位置。
+故在该文件中修改JAVA_HOME值为本机安装位置（例如，export JAVA_HOME=/usr/lib/jvm/java-1.7.0）
+
+2：yarn-env.sh
+该文件是yarn框架运行环境的配置，同样需要修改java虚拟机的位置。
+在该文件中修改JAVA_HOME值为本机安装位置（如，export JAVA_HOME=/usr/lib/jvm/java-1.7.0）
+
+3：slaves
+
+4：core-site.xml
+
+5：hdfs-site.xml
+
+将配置好的hadoop复制到其他节点（可使用ansible）
+
+
+启动验证
+格式化namenode：
+./bin/hdfs namenode -format
+
+启动hdfs: ./sbin/start-dfs.sh
+此时在Master上面运行的进程有：namenode secondarynamenode
+Slave1和Slave2上面运行的进程有：datanode
+
+启动yarn: ./sbin/start-yarn.sh
+此时在Master上面运行的进程有：namenode secondarynamenode resourcemanager
+Slave1和Slave2上面运行的进程有：datanode nodemanager
