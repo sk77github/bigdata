@@ -5,8 +5,13 @@ Job： 用户提交的作业。一个Job可能由一到多个Task组成
 Stage： job分成的阶段。一个job可能被划分为一到多个Stage
 Partition： 数据分区。即一个RDD的数据可以划分为多少个分区
 NarrowDependency; 窄依赖，即子RDD依赖于父RDD中固定的partition。narrowDependency分为 oneToOneDependency 和 RangeDependency。
-ShuffleDependency：shuffle依赖，也称为宽依赖，即子RDD对父RDD中
+ShuffleDependency：shuffle依赖，也称为宽依赖，即子RDD对父RDD中的所有partition都有依赖。
+DAG：有向无环图。用于反映各RDD之间的依赖关系。
 
+基本架构：
+driver app(actorsystem,blockmanager,broadcastmanager,taskScheduler,DAGScheduler)
+cluster manager(standalone,yarn,mesos)
+worker node(worker,executor,store)
 
 Spark的优势不仅体现在性能提升上的，Spark框架为批处理（Spark Core），交互式（Spark SQL），流式（Spark Streaming），
 机器学习（MLlib），图计算（GraphX）提供一个统一的数据处理平台，这相对于使用Hadoop有很大优势。
